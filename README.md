@@ -1,5 +1,6 @@
 # One-Prompt to Segment All Meical Image
 
+This is personal edition of the One-Prompt repo.
 One-Prompt to Segment All Medical Images, or say One-Prompt, combines the strengths of one-shot and interactive methods. In the inference stage, with just one prompted sample, it can adeptly handle the unseen task in a single forward pass.
 
 This method is elaborated in the paper [One-Prompt to Segment All Medical Images](https://arxiv.org/abs/2305.10300).
