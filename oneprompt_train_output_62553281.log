@@ -1,0 +1,27 @@
+Image shape: torch.Size([3, 1024, 1024]), Label shape: torch.Size([1536, 1024, 1024])
+Image shape: torch.Size([3, 1024, 1024]), Label shape: torch.Size([1051, 1024, 1024])
+Image shape: torch.Size([3, 1024, 1024]), Label shape: torch.Size([768, 1024, 1024])
+Image shape: torch.Size([3, 1024, 1024]), Label shape: torch.Size([2848, 1024, 1024])
+Image shape: torch.Size([3, 1024, 1024]), Label shape: torch.Size([2848, 1024, 1024])
+Image shape: torch.Size([3, 1024, 1024]), Label shape: torch.Size([2304, 1024, 1024])
+
++------------------- Job Report: 62553281 (FAILED) --------------------+
+| Memory (RAM)  [###                 ] 15.5% (7.8 GB peak / 50 GB)     |
+| CPU           [                    ]  2.9% average                   |
+| GPU           [                    ]  0.0% average                   |
+| Time          [>                   ]  4.2% (0-00:02:33 / 0-01:00:00) |
+|                                                                      |
+| Lustre Filesystem:                                                   |
+|   Path    Total Read    Total Write    Total IOPS                    |
+|   ------  ------------  -------------  ------------                  |
+|   /apps   0 B           0 B            441                           |
+|   /fred   8.5 MB        1.6 KB         5.1 K                         |
+|   /home   0 B           0 B            4                             |
+|   OS      0 B           0 B            3                             |
+|                                                                      |
+| Warnings:                                                            |
+|   - Too much memory requested                                        |
+|   - CPU usage is low                                                 |
+|   - GPU usage is low                                                 |
+|   - Too much time requested                                          |
++----------------------------------------------------------------------+

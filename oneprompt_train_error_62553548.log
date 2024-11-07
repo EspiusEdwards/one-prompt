@@ -1,0 +1,67 @@
+Namespace(net='oneprompt', baseline='unet', seg_net='transunet', mod='one_adpt', exp_name='basic_exp', type='map', vis=None, reverse=False, pretrain=False, val_freq=100, gpu=True, gpu_device=0, sim_gpu=0, epoch_ini=1, image_size=1024, out_size=256, patch_size=4, dim=256, depth=1, heads=16, mlp_dim=1024, w=4, b=4, s=True, warm=1, lr=0.0001, uinch=1, imp_lr=0.0003, weights=0, base_weights=0, sim_weights=0, distributed='none', dataset='oneprompt', one_ckpt=None, thd=False, chunk=1, num_sample=4, roi_size=96, evl_chunk=None, data_path='/fred/oz345/khoa/one-prompt/data/ISIC', path_helper={'prefix': 'logs/basic_exp_2024_11_05_22_06_03', 'ckpt_path': 'logs/basic_exp_2024_11_05_22_06_03/Model', 'log_path': 'logs/basic_exp_2024_11_05_22_06_03/Log', 'sample_path': 'logs/basic_exp_2024_11_05_22_06_03/Samples'})
+Epoch 0:   0%|          | 0/180 [00:00<?, ?img/s]Epoch 0:   0%|          | 0/180 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/monai/transforms/transform.py", line 141, in apply_transform
+    return _apply_transform(transform, data, unpack_items, lazy, overrides, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/monai/transforms/transform.py", line 98, in _apply_transform
+    return transform(data, lazy=lazy) if isinstance(transform, LazyTrait) else transform(data)
+                                                                               ^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/monai/transforms/io/dictionary.py", line 162, in __call__
+    data = self._loader(d[key], reader)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/monai/transforms/io/array.py", line 294, in __call__
+    img = EnsureChannelFirst()(img)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/monai/transforms/utility/array.py", line 200, in __call__
+    raise ValueError(msg)
+ValueError: Metadata not available and channel_dim=None, EnsureChannelFirst is not in use.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/monai/transforms/transform.py", line 141, in apply_transform
+    return _apply_transform(transform, data, unpack_items, lazy, overrides, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/monai/transforms/transform.py", line 98, in _apply_transform
+    return transform(data, lazy=lazy) if isinstance(transform, LazyTrait) else transform(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/monai/transforms/compose.py", line 335, in __call__
+    result = execute_compose(
+             ^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/monai/transforms/compose.py", line 111, in execute_compose
+    data = apply_transform(
+           ^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/monai/transforms/transform.py", line 171, in apply_transform
+    raise RuntimeError(f"applying transform {transform}") from e
+RuntimeError: applying transform <monai.transforms.io.dictionary.LoadImaged object at 0x150ce23371d0>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/fred/oz345/khoa/one-prompt/train.py", line 82, in <module>
+    loss = function.train_one(args, net, optimizer, nice_train_loader, epoch, writer, vis = args.vis)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/fred/oz345/khoa/one-prompt/function.py", line 86, in train_one
+    for pack in train_loader:
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 674, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/monai/data/dataset.py", line 112, in __getitem__
+    return self._transform(index)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/monai/data/dataset.py", line 98, in _transform
+    return apply_transform(self.transform, data_i) if self.transform is not None else data_i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/monai/transforms/transform.py", line 171, in apply_transform
+    raise RuntimeError(f"applying transform {transform}") from e
+RuntimeError: applying transform <monai.transforms.compose.Compose object at 0x150ce01a3150>

@@ -1,0 +1,20 @@
+
++------------------- Job Report: 62426828 (FAILED) --------------------+
+| Memory (RAM)  [                    ]  0.3% (312.8 MB peak / 90 GB)   |
+| CPU           [                    ]  0.2% average                   |
+| GPU           [                    ]  0.0% average                   |
+| Time          [>                   ]  0.2% (0-00:01:21 / 0-12:00:00) |
+|                                                                      |
+| Lustre Filesystem:                                                   |
+|   Path    Total Read    Total Write    Total IOPS                    |
+|   ------  ------------  -------------  ------------                  |
+|   /apps   24.9 MB       0 B            1.7 K                         |
+|   /fred   287.8 MB      0 B            10.6 K                        |
+|   /home   4 KB          0 B            8                             |
+|                                                                      |
+| Warnings:                                                            |
+|   - Too much memory requested                                        |
+|   - CPU usage is low                                                 |
+|   - GPU usage is low                                                 |
+|   - Too much time requested                                          |
++----------------------------------------------------------------------+

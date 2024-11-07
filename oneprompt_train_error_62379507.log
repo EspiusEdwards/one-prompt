@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/fred/oz345/khoa/one-prompt/val.py", line 41, in <module>
+    assert os.path.exists(args.weights)
+AssertionError
