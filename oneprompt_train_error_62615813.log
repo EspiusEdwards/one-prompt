@@ -1,0 +1,40 @@
+Namespace(net='oneprompt', baseline='unet', seg_net='transunet', mod='one_adpt', exp_name='basic_exp', type='map', vis=None, reverse=False, pretrain=False, val_freq=100, gpu=True, gpu_device=0, sim_gpu=0, epoch_ini=1, image_size=1024, out_size=256, patch_size=4, dim=256, depth=1, heads=16, mlp_dim=1024, w=4, b=4, s=True, warm=1, lr=0.0001, uinch=1, imp_lr=0.0003, weights=0, base_weights=0, sim_weights=0, distributed='none', dataset='oneprompt', one_ckpt=None, thd=False, chunk=1, num_sample=4, roi_size=96, evl_chunk=None, data_path='/fred/oz345/khoa/one-prompt/data/ISIC', num_workers=0, path_helper={'prefix': 'logs/basic_exp_2024_11_07_15_36_50', 'ckpt_path': 'logs/basic_exp_2024_11_07_15_36_50/Model', 'log_path': 'logs/basic_exp_2024_11_07_15_36_50/Log', 'sample_path': 'logs/basic_exp_2024_11_07_15_36_50/Samples'})
+Epoch 0:   0%|          | 0/225 [00:00<?, ?img/s]Epoch 0:   0%|          | 0/225 [00:07<?, ?img/s]
+Traceback (most recent call last):
+  File "/fred/oz345/khoa/one-prompt/train.py", line 89, in <module>
+    loss = function.train_one(args, net, optimizer, train_loader, epoch, writer, vis = args.vis)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/fred/oz345/khoa/one-prompt/function.py", line 156, in train_one
+    pred, _ = net.mask_decoder(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/fred/oz345/khoa/one-prompt/models/oneprompt/modeling/mask_decoder.py", line 122, in forward
+    x = self.of[u](x,img_embed, tmp_embed, p1, p2)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/fred/oz345/khoa/one-prompt/models/oneprompt/modeling/modules.py", line 165, in forward
+    image_embedding, et = self.parser(image_embedding,tmp_embedding, prompt_embedding1, prompt_embedding2)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/fred/oz345/khoa/one-prompt/models/oneprompt/modeling/modules.py", line 109, in forward
+    att_m = torch.einsum ('bncd, bndx -> bncx', etpp.unsqueeze(-1), image_embedding.unsqueeze(-2)) 
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dpham/.conda/envs/oneprompt/lib/python3.11/site-packages/torch/functional.py", line 377, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 64.00 GiB. GPU 0 has a total capacty of 79.44 GiB of which 44.70 GiB is free. Including non-PyTorch memory, this process has 34.72 GiB memory in use. Of the allocated memory 34.16 GiB is allocated by PyTorch, and 60.73 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

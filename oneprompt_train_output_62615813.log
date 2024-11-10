@@ -1,0 +1,33 @@
+torch.Size([4, 3, 1024, 1024])
+torch.Size([4, 1, 1024, 1024])
+sparse_embeddings shape: torch.Size([4, 0, 256])
+p1 shape before unsqueeze: torch.Size([4, 256])
+p1 shape after unsqueeze: torch.Size([4, 1, 256])
+sparse_embeddings shape: torch.Size([1, 0, 256])
+p1 shape before unsqueeze: torch.Size([1, 256])
+p1 shape after unsqueeze: torch.Size([1, 1, 256])
+imge shape: torch.Size([4, 64, 64, 256])
+tmp_imge_expanded shape: torch.Size([4, 64, 64, 256])
+p1 shape: torch.Size([4, 1, 256])
+p2 shape: torch.Size([4, 1, 256])
+
++------------------- Job Report: 62615813 (FAILED) --------------------+
+| Memory (RAM)  [                    ]  0.5% (403.2 MB peak / 80 GB)   |
+| CPU           [                    ]  0.5% average                   |
+| GPU           [                    ]  0.0% average                   |
+| Time          [->                  ]  5.0% (0-00:03:00 / 0-01:00:00) |
+|                                                                      |
+| Lustre Filesystem:                                                   |
+|   Path    Total Read    Total Write    Total IOPS                    |
+|   ------  ------------  -------------  ------------                  |
+|   /apps   24.9 MB       0 B            2 K                           |
+|   /fred   292.3 MB      0 B            15.3 K                        |
+|   /home   64 KB         0 B            14                            |
+|   OS      0 B           0 B            2                             |
+|                                                                      |
+| Warnings:                                                            |
+|   - Too much memory requested                                        |
+|   - CPU usage is low                                                 |
+|   - GPU usage is low                                                 |
+|   - Too much time requested                                          |
++----------------------------------------------------------------------+

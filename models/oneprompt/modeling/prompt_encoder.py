@@ -149,8 +149,16 @@ class PromptEncoder(nn.Module):
         if points is not None:
             coords, labels = points
             p1, p2 = self._embed_points(coords, labels, pad=(boxes is None))
-            p1 = torch.cat([sparse_embeddings, p1.unsqueeze(0)], dim=1)
-            p2 = torch.cat([sparse_embeddings, p2.unsqueeze(0)], dim=1)
+            print(f"sparse_embeddings shape: {sparse_embeddings.shape}")  # Should be [batch_size, N, embedding_dim]
+            print(f"p1 shape before unsqueeze: {p1.shape}")              # Should be [batch_size, embedding_dim]
+            print(f"p1 shape after unsqueeze: {p1.unsqueeze(1).shape}")               # Should be [batch_size, 1, embedding_dim]
+
+            # p1 = torch.cat([sparse_embeddings, p1.unsqueeze(0)], dim=1)
+            p1 = torch.cat([sparse_embeddings, p1.unsqueeze(1)], dim=1)
+
+            # p2 = torch.cat([sparse_embeddings, p2.unsqueeze(0)], dim=1)
+            p2 = torch.cat([sparse_embeddings, p2.unsqueeze(1)], dim=1)
+
             sparse_embeddings = torch.cat([sparse_embeddings, p1, p2], dim=1)
         if boxes is not None:
             p1, p2 = self._embed_boxes(boxes)

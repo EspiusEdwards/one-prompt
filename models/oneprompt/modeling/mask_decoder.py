@@ -103,24 +103,27 @@ class OnePromptDecoder(nn.Module):
         x = raw_emb + tmp_emb
         x = self.neck(x.permute(0, 3, 1, 2))
         x = x.permute(0, 2, 3, 1)
-
+        # x is sum of query and template embeddings
         raw_emb = self.neck(raw_emb.permute(0, 3, 1, 2))
         # raw_emb = raw_emb.permute(0, 2, 3, 1)
 
         for u in range(self.depth):
             if u == 0:
                 x, img_embed, tmp_embed, temp_pos,  p1, p2= self.deals[u](x, skips_raw[-(u + 1)], skips_tmp[-(u + 1)], image_pe, pt1, pt2, dense_prompt_embeddings)
+                # self.deals merge the features accross the layers
                 p1 = p1 + temp_pos.flatten(2).permute(0, 2, 1)
                 p2 = p2 + temp_pos.flatten(2).permute(0, 2, 1)
                 img_embed = img_embed.flatten(2).permute(0, 2, 1)
                 tmp_embed = tmp_embed.flatten(2).permute(0, 2, 1)
                 x = x.flatten(2).permute(0, 2, 1)
-            # print('tmp_embed size', tmp_embed.size())
-            # print('temp_pos size', temp_pos.size())
-            # print('p1 size', p1.size())
-            # print('p2 size', p2.size())
+            print("Decoder ....")
+            print('tmp_embed size', tmp_embed.size())
+            print('temp_pos size', temp_pos.size())
+            print('p1 size', p1.size())
+            print('p2 size', p2.size())
             x = self.of[u](x,img_embed, tmp_embed, p1, p2)
-            # print(x.size())
+            print("x size", x.size())
+            print("End Decoder ....")
         x = rearrange(x,'b (c1 c2) d -> b d c1 c2', c1 = int(math.sqrt(x.size(1))))
         x = self.patch_embed(x)
         x = rearrange(x,'b c1 c2 d-> b (c1 c2) d')

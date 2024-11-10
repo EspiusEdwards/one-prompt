@@ -39,9 +39,16 @@ class GaussianConv2d(nn.Module):
         self.bias = nn.Parameter(torch.zeros(out_channels), requires_grad=True)
 
     def forward(self, x):
+        print(f"x shape: {x.shape}")
+        print(f"weights shape: {self.weights.shape}")
         return F.conv2d(x, self.weights.unsqueeze(0).unsqueeze(0).repeat(self.out_channels, self.in_channels, 1, 1),
                         bias=self.bias, stride=self.stride, padding=self.padding)
-
+        # return F.conv2d(
+        #     x,
+        #     self.weights,
+        #     padding='same',
+        #     groups=1
+        # )
 
 def PromptMLP(dim = 3, expansion_factor = 4, dropout = 0., dense = nn.Linear):
     inner_dim = int(dim * expansion_factor)
