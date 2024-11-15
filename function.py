@@ -71,6 +71,8 @@ def train_one(args, net: nn.Module, optimizer, train_loader,
     ind = 0
     # train mode
     net.train()
+    torch.autograd.set_detect_anomaly(True)
+
     optimizer.zero_grad()
 
     epoch_loss = 0
@@ -119,7 +121,8 @@ def train_one(args, net: nn.Module, optimizer, train_loader,
                 tmp_labels_torch = tmp_labels_torch[None]        # [1, 1]
                 tmp_pt = (tmp_coords_torch, tmp_labels_torch)
                 # Get embedding for tmp_img
-                tmp_imge, tmp_skips = net.image_encoder(tmp_img)
+                with torch.no_grad():
+                    tmp_imge, tmp_skips = net.image_encoder(tmp_img.clone())
             else:
                 # Use the same tmp_imge and tmp_skips from the first iteration
                 pass
@@ -147,20 +150,17 @@ def train_one(args, net: nn.Module, optimizer, train_loader,
 
             # Expand tmp_p1 and tmp_p2 if necessary (depends on your model)
             # For now, assume they are not needed in mask_decoder
-
-            print(f"imge shape: {imge.shape}")
-            print(f"tmp_imge_expanded shape: {tmp_imge_expanded.shape}")
-            print(f"p1 shape: {p1.shape}")
-            print(f"p2 shape: {p2.shape}")
-            print(f"skip shape: {skips[0].shape}")
             
-            skips = [s.expand(b_size, -1, -1, -1) for s in skips]
+            skips = [s.expand(b_size, -1, -1, -1).clone() for s in skips]
+            
             # print the skips shape from the comprehension
-            for s in skips:
-                print(f"skip shape: {s.shape}")
-            tmp_skips_expanded = [s.expand(b_size, -1, -1, -1) for s in tmp_skips]
-            for s in tmp_skips_expanded:
-                print(f"tmp_skip shape: {s.shape}")
+            # for s in skips:
+            #     print(f"skip shape: {s.shape}")
+            
+            # tmp_skips_expanded = [s.expand(b_size, -1, -1, -1) for s in tmp_skips]
+            
+            # for s in tmp_skips_expanded:
+            #     print(f"tmp_skip shape: {s.shape}")
 
             pred, _ = net.mask_decoder(
                 skips_raw=skips,
@@ -175,14 +175,11 @@ def train_one(args, net: nn.Module, optimizer, train_loader,
                 multimask_output=False,
             )
             if pred.shape != masks.shape:
-                print(f"pred shape: {pred.shape}")
-                print(f"masks shape: {masks.shape}")
                 pred = F.interpolate(pred, size=masks.shape[-2:], mode='bilinear', align_corners=False)
             loss = lossfunc(pred, masks)
 
             pbar.set_postfix(**{'loss (batch)': loss.item()})
             epoch_loss += loss.item()
-            torch.autograd.set_detect_anomaly(True)
             loss.backward(retain_graph=True)
             
 

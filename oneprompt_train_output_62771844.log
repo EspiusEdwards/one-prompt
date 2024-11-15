@@ -1,0 +1,32 @@
+time_for_training  216.04278588294983
+time_for_training  161.9374918937683
+time_for_training  163.84404611587524
+time_for_training  163.81566166877747
+time_for_training  163.47361207008362
+time_for_training  163.45264983177185
+time_for_training  163.56541752815247
+time_for_training  162.9688754081726
+time_for_training  163.16836428642273
+time_for_training  163.02737283706665
+time_for_training  163.1473617553711
+
++------------------- Job Report: 62771844 (FAILED) --------------------+
+| Memory (RAM)  [####                ] 21.4% (1.7 GB peak / 8 GB)      |
+| CPU           [####                ] 21.0% average                   |
+| GPU           [##                  ] 13.6% average                   |
+| Time          [>                   ]  4.0% (0-00:36:13 / 0-15:00:00) |
+|                                                                      |
+| Lustre Filesystem:                                                   |
+|   Path    Total Read    Total Write    Total IOPS                    |
+|   ------  ------------  -------------  ------------                  |
+|   /apps   4 KB          0 B            96                            |
+|   /fred   1.2 GB        1.1 MB         42.5 K                        |
+|   /home   64 KB         0 B            16                            |
+|   OS      4 KB          0 B            1                             |
+|                                                                      |
+| Warnings:                                                            |
+|   - Too much memory requested                                        |
+|   - CPU usage is low                                                 |
+|   - GPU usage is low                                                 |
+|   - Too much time requested                                          |
++----------------------------------------------------------------------+

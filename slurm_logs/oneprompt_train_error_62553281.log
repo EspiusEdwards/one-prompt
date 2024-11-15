@@ -1,9 +1,0 @@
-Namespace(net='oneprompt', baseline='unet', seg_net='transunet', mod='one_adpt', exp_name='basic_exp', type='map', vis=None, reverse=False, pretrain=False, val_freq=100, gpu=True, gpu_device=0, sim_gpu=0, epoch_ini=1, image_size=1024, out_size=256, patch_size=4, dim=256, depth=1, heads=16, mlp_dim=1024, w=4, b=4, s=True, warm=1, lr=0.0001, uinch=1, imp_lr=0.0003, weights=0, base_weights=0, sim_weights=0, distributed='none', dataset='oneprompt', one_ckpt=None, thd=False, chunk=1, num_sample=4, roi_size=96, evl_chunk=None, data_path='/fred/oz345/khoa/one-prompt/data/ISIC', path_helper={'prefix': 'logs/basic_exp_2024_11_05_21_50_20', 'ckpt_path': 'logs/basic_exp_2024_11_05_21_50_20/Model', 'log_path': 'logs/basic_exp_2024_11_05_21_50_20/Log', 'sample_path': 'logs/basic_exp_2024_11_05_21_50_20/Samples'})
-Traceback (most recent call last):
-  File "/fred/oz345/khoa/one-prompt/train.py", line 61, in <module>
-    nice_train_loader, nice_test_loader, transform_train, transform_val, train_list, val_list =get_decath_loader(args)
-                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/fred/oz345/khoa/one-prompt/utils.py", line 278, in get_decath_loader
-    val_ds = Dataset(
-             ^^^^^^^^
-TypeError: Dataset.__init__() got an unexpected keyword argument 'cache_num'

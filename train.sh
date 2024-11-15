@@ -3,10 +3,10 @@
 #SBATCH --output=oneprompt_train_output_%j.log # Output log file (%j will be replaced with the job ID)
 #SBATCH --error=oneprompt_train_error_%j.log   # Error log file (%j will be replaced with the job ID)
 #SBATCH --ntasks=1                     # Number of tasks (usually 1 for a single script)
-#SBATCH --cpus-per-task=8             # Number of CPU cores per task
+#SBATCH --cpus-per-task=3             # Number of CPU cores per task
 #SBATCH --gres=gpu:1                   # Request 1 GPU (adjust as needed)
-#SBATCH --mem=150G                      # Memory per node (adjust as needed)
-#SBATCH --time=01:00:00                # Maximum time the job can run (adjust as needed)
+#SBATCH --mem=8G                      # Memory per node (adjust as needed)
+#SBATCH --time=15:00:00                # Maximum time the job can run (adjust as needed)
 #SBATCH --partition=gpu                # Partition to submit to (adjust based on your cluster setup)
 
 # Load required modules

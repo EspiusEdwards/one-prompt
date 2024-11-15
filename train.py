@@ -63,8 +63,7 @@ if args.dataset == 'oneprompt':
     for batch in train_loader:
         images = batch['image']
         labels = batch['label']
-        print(images.shape)  # Should be [batch_size, 3, image_size, image_size]
-        print(labels.shape)  # Should be [batch_size, 1, image_size, image_size]
+   
         break
 '''checkpoint path and tensorboard'''
 checkpoint_path = os.path.join(settings.CHECKPOINT_PATH, args.net, settings.TIME_NOW)
@@ -80,7 +79,7 @@ checkpoint_path = os.path.join(checkpoint_path, '{net}-{epoch}-{type}.pth')
 
 '''begain training'''
 best_acc = 0.0
-best_tol = 1e4
+best_tol = 10000
 for epoch in range(settings.EPOCH):
     net.train()
     time_start = time.time()

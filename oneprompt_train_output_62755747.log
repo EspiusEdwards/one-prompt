@@ -1,0 +1,121 @@
+time_for_training  262.4370300769806
+time_for_training  162.86471724510193
+time_for_training  162.97558212280273
+time_for_training  166.18704104423523
+time_for_training  166.1520276069641
+time_for_training  165.8600869178772
+time_for_training  165.86495685577393
+time_for_training  165.62022829055786
+time_for_training  165.09051704406738
+time_for_training  163.4679491519928
+time_for_training  162.43233561515808
+time_for_training  162.06711602210999
+time_for_training  162.45290184020996
+time_for_training  165.48788714408875
+time_for_training  165.50617575645447
+time_for_training  168.3957552909851
+time_for_training  162.5173535346985
+time_for_training  170.7420620918274
+time_for_training  171.43407559394836
+time_for_training  170.61938452720642
+time_for_training  171.1424858570099
+time_for_training  175.95123887062073
+time_for_training  172.6564235687256
+time_for_training  163.68677020072937
+time_for_training  164.64023756980896
+time_for_training  163.869971036911
+time_for_training  164.00655841827393
+time_for_training  163.53791522979736
+time_for_training  163.3779296875
+time_for_training  163.86903953552246
+time_for_training  163.77357625961304
+time_for_training  169.77654719352722
+time_for_training  163.59358954429626
+time_for_training  163.87989497184753
+time_for_training  170.48951983451843
+time_for_training  163.17068219184875
+time_for_training  163.29224634170532
+time_for_training  163.3339581489563
+time_for_training  163.8143835067749
+time_for_training  164.04253029823303
+time_for_training  163.90573477745056
+time_for_training  162.9478907585144
+time_for_training  162.93625926971436
+time_for_training  164.38326478004456
+time_for_training  167.39901065826416
+time_for_training  171.31443214416504
+time_for_training  169.57907366752625
+time_for_training  167.84032607078552
+time_for_training  167.26794338226318
+time_for_training  167.40823316574097
+time_for_training  168.30176067352295
+time_for_training  167.25662446022034
+time_for_training  167.05402970314026
+time_for_training  167.2973301410675
+time_for_training  167.0592005252838
+time_for_training  168.26949334144592
+time_for_training  167.40850949287415
+time_for_training  166.52099561691284
+time_for_training  163.89566659927368
+time_for_training  163.56128239631653
+time_for_training  163.6877510547638
+time_for_training  163.58438801765442
+time_for_training  168.6415503025055
+time_for_training  164.54659700393677
+time_for_training  163.10571312904358
+time_for_training  163.32875323295593
+time_for_training  163.17044830322266
+time_for_training  163.08647322654724
+time_for_training  163.4358835220337
+time_for_training  165.0583028793335
+time_for_training  163.5654604434967
+time_for_training  164.90405678749084
+time_for_training  174.06239867210388
+time_for_training  174.3480350971222
+time_for_training  173.92786192893982
+time_for_training  173.81388139724731
+time_for_training  170.77883768081665
+time_for_training  168.5456748008728
+time_for_training  168.11548018455505
+time_for_training  167.94007992744446
+time_for_training  165.6710479259491
+time_for_training  168.75351929664612
+time_for_training  169.6267912387848
+time_for_training  168.73189544677734
+time_for_training  169.24220633506775
+time_for_training  170.34844613075256
+time_for_training  182.51801204681396
+time_for_training  169.1748378276825
+time_for_training  167.98523449897766
+time_for_training  166.53677701950073
+time_for_training  165.001802444458
+time_for_training  167.6595003604889
+time_for_training  170.36850690841675
+time_for_training  166.2641942501068
+time_for_training  166.39617347717285
+time_for_training  166.23229002952576
+time_for_training  165.33653140068054
+time_for_training  164.4167239665985
+time_for_training  163.73226833343506
+time_for_training  163.49995946884155
+
++------------------- Job Report: 62755747 (FAILED) --------------------+
+| Memory (RAM)  [#                   ]  8.7% (1.7 GB peak / 20 GB)     |
+| CPU           [####                ] 24.8% average                   |
+| GPU           [###                 ] 15.5% average                   |
+| Time          [------>             ] 31.6% (0-04:44:16 / 0-15:00:00) |
+|                                                                      |
+| Lustre Filesystem:                                                   |
+|   Path    Total Read    Total Write    Total IOPS                    |
+|   ------  ------------  -------------  ------------                  |
+|   /apps   0 B           0 B            819                           |
+|   /fred   1.6 GB        9 MB           395.8 K                       |
+|   /home   64 KB         0 B            24                            |
+|   OS      0 B           0 B            2                             |
+|                                                                      |
+| Warnings:                                                            |
+|   - Too much memory requested                                        |
+|   - CPU usage is low                                                 |
+|   - GPU usage is low                                                 |
+|   - Too much time requested                                          |
++----------------------------------------------------------------------+
