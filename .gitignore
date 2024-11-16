@@ -4,3 +4,4 @@ runs/
 slurm_logs/
 __pycache__/
 checkpoint/
+logs/
