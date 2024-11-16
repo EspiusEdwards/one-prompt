@@ -59,7 +59,33 @@ logger.info(args)
 
 if args.dataset == 'oneprompt':
     # nice_train_loader, nice_test_loader, transform_train, transform_val, train_list, val_list =get_decath_loader(args)
-    train_loader, val_loader = get_isic_loader(args)
+    # train_loader, val_loader = get_isic_loader(args)
+    train_loader, val_loader = get_btcv_loader(args)
+    # Loop through the train_loader to inspect the first batch
+    # Loop through the train_loader to inspect the first batch
+    for batch in train_loader:
+        images = batch['image']
+        labels = batch['label']
+        p_labels = batch['p_label']
+        pts = batch['pt']
+        meta_data = batch['image_meta_dict']
+        
+        # Print shapes, types, and all returned items from get_item
+        print("Image batch shape:", images.shape)
+        print("Label batch shape:", labels.shape)
+        print("p_label:", p_labels)
+        print("pt:", pts)
+        print("image_meta_dict:", meta_data)
+        
+        print("Image batch dtype:", images.dtype)
+        print("Label batch dtype:", labels.dtype)
+        
+        # Print actual images and labels if necessary (optional)
+        print("Image batch:", images)
+        print("Label batch:", labels)
+        
+        break  # Exit after the first batch for testing
+        
     for batch in train_loader:
         images = batch['image']
         labels = batch['label']

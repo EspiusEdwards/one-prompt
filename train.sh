@@ -14,10 +14,10 @@ module load cuda/12.4.1
 module -q load mamba
 
 # Activate your conda environment using mamba
-mamba activate oneprompt
+conda activate /fred/oz345/khoa/.conda
 
 # Navigate to your project directory
 cd /fred/oz345/khoa/one-prompt # Adjust this path to your project directory
 
 # Run the training Python script with the specified arguments
-python3 train.py -net oneprompt -mod one_adpt -exp_name basic_exp -b 4 -dataset oneprompt -patch_size 16 -data_path /fred/oz345/khoa/one-prompt/data/ISIC -baseline 'unet'
+python3 train.py -net oneprompt -val_freq 10 -mod one_adpt -exp_name basic_exp -b 4 -dataset oneprompt -patch_size 16 -data_path /fred/oz345/khoa/one-prompt/data/BTCV/btcv -baseline 'unet'

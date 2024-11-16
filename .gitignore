@@ -2,4 +2,5 @@ core.*
 data/BTCV
 runs/
 slurm_logs/
-logs/
+__pycache__/
+checkpoint/
