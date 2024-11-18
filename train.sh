@@ -20,4 +20,4 @@ conda activate /fred/oz345/khoa/.conda
 cd /fred/oz345/khoa/one-prompt # Adjust this path to your project directory
 
 # Run the training Python script with the specified arguments
-python3 train.py -net oneprompt -val_freq 10 -mod one_adpt -exp_name basic_exp -b 4 -dataset oneprompt -patch_size 16 -data_path /fred/oz345/khoa/one-prompt/data/BTCV/btcv -baseline 'unet'
+python3 train.py -net oneprompt -val_freq 1 -mod one_adpt -exp_name basic_exp -b 4 -dataset oneprompt -patch_size 16 -data_path /fred/oz345/khoa/one-prompt/data/BTCV/btcv -baseline 'unet'

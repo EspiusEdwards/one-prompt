@@ -20,4 +20,4 @@ mamba activate oneprompt
 cd /fred/oz345/khoa/one-prompt # Adjust this path to your project directory
 
 # Run the training Python script with the specified arguments
-python val.py -net oneprompt -mod one_adpt -exp_name One-ISIC -weights *weight_path* -b 1 -dataset isic -data_path /fred/oz345/khoa/one-prompt/data/isc -vis 10 -baseline 'unet'
+python val.py -net oneprompt -mod one_adpt -exp_name One-ISIC -weights /fred/oz345/khoa/one-prompt/logs/basic_exp_2024_11_15_21_58_07/Model/checkpoint_best.pth -b 1 -dataset isic -data_path /fred/oz345/khoa/one-prompt/data/ISIC -vis 10 -baseline 'unet'
